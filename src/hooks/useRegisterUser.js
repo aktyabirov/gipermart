@@ -4,7 +4,7 @@ export const useRegisterUser = () => {
   return useMutation({
     mutationKey: 'registerUser',
     mutationFn: async (newUser) => {
-      const response = await fetch('http://localhost:3000/users', {
+      const response = await fetch('https://backend-62qa.onrender.com/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newUser),

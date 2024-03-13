@@ -9,6 +9,8 @@ import { Categories } from "../../components/categories";
 import { Banner } from "../../components/slider/banner";
 import { NextArrow } from "../../components/arrows";
 import { PrevArrow } from "../../components/arrows";
+import CardSkeleton from "../../components/cardSkeleton";
+
 
 const HomePage = () => {
   const { data: categories, isLoading: isLoadingCategories } = useFetchData(
@@ -51,6 +53,7 @@ const HomePage = () => {
 
       <div className="container pt-10">
         <h2>Phones</h2>
+        {isLoadingPhones ? <CardSkeleton/> : ""}
         {!isLoadingPhones && Array.isArray(phones) ? (
           <Slider {...settings}>
             {phones.map((phone) => (
